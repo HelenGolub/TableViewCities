@@ -1,21 +1,34 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
+    
+    private let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid", "Kharkiv", "Budapest", "Berdyansk", "Milan", "Prague",
+                               "New York", "Poltava", "Venice", "Paris", "Vinnytsia"]
+    var filteredCitiesArray = [String]()
+    var searchActive = false
 
     
-    private let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid"]
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredCitiesArray = ta
+        
+        if filteredCitiesArray.count == 0 {
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,27 +36,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchActive {
+            return filteredCitiesArray.count
+        }
         return citiesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")!
-        cell.textLabel?.text = citiesArray[indexPath.row]
+        if searchActive {
+            cell.textLabel?.text = filteredCitiesArray[indexPath.row]
+        } else {
+            cell.textLabel?.text = citiesArray[indexPath.row]
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (indexPath.row%2 == 0) {
-            let color: UIColor = UIColor.yellow
-            cell.backgroundColor = color
+            cell.backgroundColor = .yellow
+        } else {
+            cell.backgroundColor = .white
         }
-        
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-    }
-    
-
 }
 
