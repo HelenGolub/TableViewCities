@@ -3,7 +3,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
-    private let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid", "Kharkiv", "Budapest", "Berdyansk", "Milan", "Prague",
+    let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid", "Kharkiv", "Budapest", "Berdyansk", "Milan", "Prague",
                                "New York", "Poltava", "Venice", "Paris", "Vinnytsia"]
     var filteredCitiesArray = [String]()
     var searchActive = false
@@ -14,19 +14,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        searchBar.delegate = self
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCitiesArray = ta
-        
-        if filteredCitiesArray.count == 0 {
-            searchActive = false;
-        } else {
-            searchActive = true;
+        for (_, value) in citiesArray.enumerated() {
+            if searchBar.text! == value {
+                filteredCitiesArray.append(value)
+            }
         }
         tableView.reloadData()
     }
