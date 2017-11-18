@@ -40,6 +40,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="6IV-nz-sGI" kind="show" identifier="segue" id="08Z-cT-9aH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -75,6 +78,40 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="479.19999999999999" y="132.68365817091455"/>
+        </scene>
+        <!--City Name View Controller-->
+        <scene sceneID="Tt1-PQ-uIM">
+            <objects>
+                <viewController id="6IV-nz-sGI" customClass="CityNameViewController" customModule="Cities" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Ct-ll-Wgb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-Ny-yIu" userLabel="City Name Label">
+                                <rect key="frame" x="97" y="308" width="180" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="H4n-dN-GvV"/>
+                                    <constraint firstAttribute="height" constant="50" id="Lj5-lb-92d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IwC-Ny-yIu" firstAttribute="centerX" secondItem="7Ct-ll-Wgb" secondAttribute="centerX" id="kwI-Nv-VhF"/>
+                            <constraint firstItem="IwC-Ny-yIu" firstAttribute="centerY" secondItem="7Ct-ll-Wgb" secondAttribute="centerY" id="mxR-uO-2Xm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tOI-ET-W45"/>
+                    </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="IwC-Ny-yIu" id="HI0-ro-VhJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syf-ia-bcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

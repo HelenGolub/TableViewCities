@@ -12,6 +12,7 @@
 		797E09871F9E6D1000F1A81F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797E09851F9E6D1000F1A81F /* Main.storyboard */; };
 		797E09891F9E6D1000F1A81F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 797E09881F9E6D1000F1A81F /* Assets.xcassets */; };
 		797E098C1F9E6D1000F1A81F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797E098A1F9E6D1000F1A81F /* LaunchScreen.storyboard */; };
+		799C17A21FBDCD7700142EA4 /* CityNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C17A11FBDCD7700142EA4 /* CityNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		797E09881F9E6D1000F1A81F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		797E098B1F9E6D1000F1A81F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		797E098D1F9E6D1000F1A81F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		799C17A11FBDCD7700142EA4 /* CityNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				797E09811F9E6D1000F1A81F /* AppDelegate.swift */,
 				797E09831F9E6D1000F1A81F /* ViewController.swift */,
+				799C17A11FBDCD7700142EA4 /* CityNameViewController.swift */,
 				797E09851F9E6D1000F1A81F /* Main.storyboard */,
 				797E09881F9E6D1000F1A81F /* Assets.xcassets */,
 				797E098A1F9E6D1000F1A81F /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				797E09841F9E6D1000F1A81F /* ViewController.swift in Sources */,
+				799C17A21FBDCD7700142EA4 /* CityNameViewController.swift in Sources */,
 				797E09821F9E6D1000F1A81F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

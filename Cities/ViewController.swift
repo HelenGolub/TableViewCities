@@ -3,10 +3,10 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
-    private let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid", "Kharkiv", "Budapest", "Berdyansk", "Milan", "Prague",
+    let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid", "Kharkiv", "Budapest", "Berdyansk", "Milan", "Prague",
                                "New York", "Poltava", "Venice", "Paris", "Vinnytsia"]
     
-    private var filteredCitiesArray = [String]()
+    var filteredCitiesArray = [String]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -53,5 +53,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue" {
+            if let index = tableView.indexPathForSelectedRow {
+                let destinationViewController = segue.destination as! CityNameViewController
+                destinationViewController.nameOfTheCity = filteredCitiesArray[index.row]
+            }
+        }
+    }
 }
 
