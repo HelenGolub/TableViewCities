@@ -10,16 +10,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var newCity: UITextField!
+    
+    @IBAction func addCityButton(_ sender: UIButton) {
+        UserDefaults.standard.set(newCity.text!, forKey: "addCity")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filteredCitiesArray.append(contentsOf: citiesArray)
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredCitiesArray.removeAll()
-        if searchText.characters.count == 0 {
+        if searchText.count == 0 {
             filteredCitiesArray.append(contentsOf: citiesArray)
         } else {
             for cities in citiesArray {
@@ -30,6 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         tableView.reloadData()
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -46,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row%2 == 0) {
+        if (indexPath.row % 2 == 0) {
             cell.backgroundColor = .yellow
         } else {
             cell.backgroundColor = .white
