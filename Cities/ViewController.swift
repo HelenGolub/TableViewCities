@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextFieldDelegate {
     
     
     let citiesArray = ["Kyiv", "Lviv", "Barcelona", "Rome", "Madrid", "Kharkiv", "Budapest", "Berdyansk", "Milan", "Prague",
@@ -12,15 +12,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var newCity: UITextField!
     
-    @IBAction func addCityButton(_ sender: UIButton) {
-        UserDefaults.standard.set(newCity.text!, forKey: "addCity")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filteredCitiesArray.append(contentsOf: citiesArray)
         
+    }
+    
+    @IBAction func addCityButton(_ sender: UIButton) {
+        filteredCitiesArray.append(newCity.text!)
+        
+        let indexPath = IndexPath(row: filteredCitiesArray.count - 1, section: 0)
+        
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+        
+        newCity.text! = ""
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
